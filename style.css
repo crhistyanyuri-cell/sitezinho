@@ -1,0 +1,40 @@
+header {
+    background-color: #00ffea;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+main {
+    justify-content: center;
+    display: flex;
+    margin-top: 100px;
+    background-color: rgb(26, 26, 153);
+    padding: 300px;
+}
+footer {
+    background-color: #00ffea;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+button.cta {
+    background-color: #2600ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+h1 {
+    color: #ff00ea;
+    text-align: center;
+}
+p {
+    color: #ff00dd;
+    text-align: center;
+}
+
+.button.-TelaPrincipal.html {
+    background-color: #00ffea;
+    color: #2600ff;
+}
