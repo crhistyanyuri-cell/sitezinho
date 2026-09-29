@@ -1,40 +1,92 @@
-header {
-    background-color: #00ffea;
-    color: white;
-    padding: 10px;
-    text-align: center;
+header{
+    background-color: rgb(0, 217, 255);
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 0 38px;
+    border-radius: 20px;
 }
-main {
+
+nav a{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.logo{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+nav{
+    gap: 20px;
+    display: flex;
+}
+body{
+    background-color: rgb(56, 50, 141);
+}
+a:hover{
+    color: rgb(255, 0, 234);
+    transition: 5ms;
+}
+ p{
+    color: rgb(255, 0, 221);
+    text-decoration: none;
+}
+h1{
+    color: rgb(255, 0, 255);
+    text-decoration: none;
+}
+
+div{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+main{
     justify-content: center;
     display: flex;
     margin-top: 100px;
-    background-color: rgb(26, 26, 153);
-    padding: 300px;
 }
-footer {
-    background-color: #00ffea;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-button.cta {
-    background-color: #2600ff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-h1 {
-    color: #ff00ea;
-    text-align: center;
-}
-p {
-    color: #ff00dd;
+
+.cards{
+    background-color: rgb(144, 192, 201);
+    border-radius: 20px;
+    width: 40%;
     text-align: center;
 }
 
-.button.-TelaPrincipal.html {
-    background-color: #00ffea;
-    color: #2600ff;
+.Título{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.subtítulo{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+header{
+    background-color: rgb(0, 217, 255);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 0 38px;
+    border-radius: 20px;
+}
+
+button{
+    background-color: rgb(255, 0, 242);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
