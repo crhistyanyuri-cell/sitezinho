@@ -143,10 +143,12 @@ footer{
     background-color: rgb(255, 255, 255);
     border-radius: 100px;
     padding: 4px 6px;
-    width: 350px; /* Tamanho confortável para digitação */
+    width: 1000px; /* Tamanho confortável para digitação */
     border: 2px solid transparent;
     transition: border-color 0.2s;
     margin: 0 20px;
+    height: 40px;
+    font-style: italic;
 }
 
 .caixa-pesquisa:focus-within {
