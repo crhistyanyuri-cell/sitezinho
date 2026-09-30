@@ -1,10 +1,13 @@
+/* ==========================================================================
+   1. SEUS ESTILOS ORIGINAIS (PRESERVADOS)
+   ========================================================================== */
+
 header{
     background-color: rgb(0, 217, 255);
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    display: flex;
     padding: 0 38px;
     border-radius: 20px;
 }
@@ -14,9 +17,10 @@ nav a{
     text-decoration: none;
 }
 
-.logo{
-    color: rgb(255, 255, 255);
-    text-decoration: none;
+.logo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
 }
 
 nav{
@@ -25,6 +29,7 @@ nav{
 }
 body{
     background-color: rgb(56, 50, 141);
+    border-radius: 100px;
 }
 a:hover{
     color: rgb(255, 0, 234);
@@ -33,10 +38,14 @@ a:hover{
  p{
     color: rgb(255, 0, 221);
     text-decoration: none;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 h1{
+    text-align: center;
     color: rgb(255, 0, 255);
     text-decoration: none;
+    margin-left: 40px;
 }
 
 div{
@@ -44,15 +53,17 @@ div{
     text-decoration: none;
 }
 
+/* AJUSTE NO MAIN: Mudamos para 'block' para que o Pinterest consiga empilhar as colunas corretamente */
 main{
-    justify-content: center;
-    display: flex;
-    margin-top: 100px;
+    display: block; 
+    margin-top: 50px;
+    margin-left: 120px; /* Dá espaço para a barra lateral não cobrir nada */
+    padding: 20px;
 }
 
 .cards{
     background-color: rgb(144, 192, 201);
-    border-radius: 20px;
+    border-radius: 100px;
     width: 40%;
     text-align: center;
 }
@@ -71,22 +82,158 @@ main{
     margin-top: 20px;
 }
 
-header{
-    background-color: rgb(0, 217, 255);
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    padding: 0 38px;
-    border-radius: 20px;
-}
-
 button{
     background-color: rgb(255, 0, 242);
     border: none;
     color: rgb(255, 255, 255);
     padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
+    border-radius: 100px;
+}
+
+footer{
+    height: 50px;
+    margin-top: 100px; /* Reduzido de 700px para evitar espaços vazios gigantescos no fundo */
+}
+
+
+/* ==========================================================================
+   2. NOVAS MODIFICAÇÕES INTEGRADAS (BARRA, PINTEREST E MODAL)
+   ========================================================================== */
+
+/* --- CONFIGURAÇÃO DA SUA BARRA LATERAL ROXA --- */
+/* --- CONFIGURAÇÃO DA SUA BARRA LATERAL ROXA (CORRIGIDA) --- */
+.Barra-lateral {
+    position: fixed;
+    top: 120px;                 /* Começa logo abaixo do seu header azul */
+    left: 15px;
+    width: 125px;               /* Largura confortável para as palavras não quebrarem */
+    background-color: #6a3299;  /* Seu roxo original e idêntico ao da primeira tela */
+    border-radius: 20px;        /* Bordas arredondadas combinando com o resto do site */
+    padding: 25px 10px;         /* Espaço interno para os links respirarem */
+    z-index: 10;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;     /* Alinha os links em formato vertical (em pé) */
+    align-items: center;        /* Centraliza perfeitamente o texto no meio da barra */
+    list-style: none;
+    padding: 0;
+    gap: 35px;                  /* Espaçamento perfeito de separação entre os links */
+}
+
+/* Garante que o link ocupe o espaço e herde a cor branca correta */
+.nav-links li a {
+    color: white !important;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+
+
+/* --- NOVA BARRA DE PESQUISA (ESTILO PINTEREST) --- */
+.caixa-pesquisa {
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100px;
+    padding: 4px 6px;
+    width: 350px; /* Tamanho confortável para digitação */
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+    margin: 0 20px;
+}
+
+.caixa-pesquisa:focus-within {
+    border-color: rgb(255, 0, 242); /* Ganha borda do seu rosa favorito ao clicar */
+}
+
+.caixa-pesquisa input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 8px 15px;
+    font-size: 15px;
+    width: 100%;
+}
+
+.botao-pesquisa {
+    background-color: rgb(56, 50, 141) !important; /* Cor do fundo escuro do seu site */
+    color: white !important;
+    border: none !important;
+    padding: 8px 18px !important;
+    border-radius: 100px !important;
+    cursor: pointer;
+}
+
+
+/* --- NOVO FEED DE IMAGENS --- */
+.feed-pinterest {
+    column-count: 4; /* Divide perfeitamente em 4 colunas horizontais */
+    column-gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.pin {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 20px; /* Distância vertical entre as fotos */
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+/* Mantendo seu efeito hover */
+.pin:hover {
+    transform: scale(1.03);
+    cursor: zoom-in;
+}
+
+/* Força as imagens da coruja, gatinho, etc. a preencherem a coluna sem sumir */
+.pin img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+
+/* --- JANELA MODAL DE DETALHES (CLIQUE PARA AMPLIAR) --- */
+.modal {
+    display: none; /* Inicia oculta */
+    position: fixed;
+    z-index: 2000; /* Fica acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-modal {
+    max-width: 80%;
+    max-height: 80vh;
+    border-radius: 16px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.6);
+}
+
+.botao-fechar {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botao-fechar:hover {
+    color: rgb(255, 0, 234); /* Seu hover rosa clássico */
 }
