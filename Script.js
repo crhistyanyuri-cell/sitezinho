@@ -524,3 +524,18 @@ botaoCriarProjeto.addEventListener(
 // Mostra os projetos quando a página abre
 
 mostrarProjetos();
+
+searchInput.addEventListener('keyup', function() {
+    const query = searchInput.value.toLowerCase();
+
+    for (let i = 0; i < items.length; i++) {
+        const itemText = items[i].textContent.toLowerCase();
+        
+        // Se o texto do item incluir o que foi digitado, ele aparece; senão, é ocultado
+        if (itemText.includes(query)) {
+            items[i].style.display = '';
+        } else {
+            items[i].style.display = 'none';
+        }
+    }
+});

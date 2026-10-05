@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     
 </head>
 <body>
@@ -16,7 +17,7 @@
        
         <!-- NOVA BARRA DE PESQUISA INTEGRADA -->
         <div class="caixa-pesquisa">
-            <input type="text" placeholder="Pesquisar...">
+            <input type="text" id="search" placeholder="Pesquisar...">
             <button type="submit" class="botao-pesquisa">Buscar</button>
         </div>
 
@@ -31,10 +32,18 @@
     </header>
 
     <main>
+        
         <!-- BARRA LATERAL (Isolada corretamente para não travar o layout) -->
         <nav class="barra-Lateral">
     <div>
         <ul class="nav-links">
+
+             <li>
+                <a href="TelaPrincipal.html" class="active">
+                    <img src="25694 (1).png" alt="" class="imagem-casa">
+                    <span class="tooltip"></span>
+                </a>
+            </li>
 
             <li>
                 <a href="Contatos.html" class="active">
@@ -79,30 +88,70 @@
                 </a>
             </li>
 
+            <li>
+                <a href="https://x.com/?lang=pt" class="active">
+                    <img src="images (4).png" alt="" class="imagem-X">
+                    <span class="tooltip"></span>
+                </a>
+            </li>
+            <br>
+            <br>
+            <p></p>
+            <hr>
+            <li>
+                <a href="Configurações.html" class="active">
+                    <img src="images (17).jpg" alt="" class="imagem-configuração">
+                    <span class="tooltip"></span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>
 
         <!-- NOVO: FEED DE IMAGENS ESTILO PINTEREST (Com as tags fechadas perfeitamente) -->
-        <div class="feed-pinterest">
+        <div class="feed-pinterest" >
             <div class="pin">
-                <img src="images (16).jpg" alt="Foto 1">
+                <div class="pin">
+                <img src="images (16).jpg"  class="imagem-contorno">
             </div> 
 
             <div class="pin">
-                <img src="depositphotos_84956436-stock-illustration-silhouette-of-a-cat-in.jpg" alt="Foto 2">
+                <img src="depositphotos_84956436-stock-illustration-silhouette-of-a-cat-in.jpg" class="imagem-contorno">
             </div> 
 
             <div class="pin">
-                <img src="coruja-branca-real-e1677334788811.jpg" alt="Foto 3">
+                <img src="coruja-branca-real-e1677334788811.jpg" class="imagem-contorno">
             </div> 
 
             <div class="pin">
-                <img src="50acd9cf91eda47f089bdb8372f8cfbc.jpg" alt="Foto 4">
+                <img src="50acd9cf91eda47f089bdb8372f8cfbc.jpg" class="imagem-contorno ">
             </div> 
 
             <div class="pin">
-                <img src="images.jpg" alt="Foto 5">
+                <img src="images.jpg" >
+            </div> 
+            <hr>
+            <div class="pin">
+                <div class="pin">
+                <img src="images (16).jpg"  class="imagem-contorno">
+            </div> 
+
+            <div class="pin">
+                <img src="depositphotos_84956436-stock-illustration-silhouette-of-a-cat-in.jpg" class="imagem-contorno">
+            </div> 
+
+            <div class="pin">
+                <img src="coruja-branca-real-e1677334788811.jpg" class="imagem-contorno">
+            </div> 
+
+            <div class="pin">
+                <img src="50acd9cf91eda47f089bdb8372f8cfbc.jpg" class="imagem-contorno ">
+            </div> 
+
+            <div class="pin">
+                <img src="images.jpg" >
+            </div> 
             </div> 
             
         </div>
@@ -145,4 +194,5 @@
         }
     </script>
 </body>
+
 </html>
