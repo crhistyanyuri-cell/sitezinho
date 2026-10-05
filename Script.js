@@ -2,7 +2,7 @@ const botaoCriarProjeto =
     document.getElementById("criarProjeto");
 
 const areaProjetos =
-    document.querySelector(".projetos");
+    document.querySelector(".Projetos");
 
 let imagemSelecionada = null;
 let indiceImagemSelecionada = null;
