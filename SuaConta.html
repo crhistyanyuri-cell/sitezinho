@@ -1,61 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-    <link rel="stylesheet" href="style.css">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-   
-    <header claass="cabeçalho-projeto">
-       
+
+    <!-- CABEÇALHO -->
+    <header class="cabeçalho-projeto">
+
         <div class="caixa-pesquisa">
             <input type="text" id="searchInput" placeholder="Pesquisar...">
             <button type="submit" class="botao-pesquisa">Buscar</button>
-            
         </div>
 
         <button class="criar-projeto" id="criarProjeto">
-            + Criar projeto
-        </button>
-         <input
+    + Criar projeto
+</button>
 
+        <input
             type="file"
-
-
             id="seletorImagem"
-
             accept="image/*"
-
             hidden
-
         >
 
         <div class="logo">
+
             <a href="LogIn.html" class="botao-imagem">
                 <img src="3033143.png" alt="">
             </a>
+
             <a href="SuaConta.html" class="Sua-Conta">
                 <img src="5dc4b960da3c45649c613b71235f331a (1).jpg" alt="">
             </a>
+
         </div>
-        
-
-        
-
-        
-           
-            
 
     </header>
-    
-    <main class="Projetos">
-           <nav class="barra-Lateral">
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <!-- BARRA LATERAL -->
+        <nav class="barra-Lateral">
     <div>
         <ul class="nav-links">
 
-            <li>
+             <li>
                 <a href="TelaPrincipal.html" class="active">
                     <img src="25694 (1).png" alt="" class="imagem-casa">
                     <span class="tooltip"></span>
@@ -111,6 +109,10 @@
                     <span class="tooltip"></span>
                 </a>
             </li>
+            <br>
+            <br>
+            <p></p>
+            <hr>
             <li>
                 <a href="Configurações.html" class="active">
                     <img src="images (17).jpg" alt="" class="imagem-configuração">
@@ -120,67 +122,48 @@
 
         </ul>
     </div>
+
 </nav>
-        
-    </main>
+<nav class="Barra-lateral-direita">
+            <div>
+                <li>
+                <a href="Publicar.html" class="active">
+                    <img src="images (18).jpg" alt="" class="imagem-estrela">
+                    <span class="tooltip"></span>
+                </a>
+            </li>
+            </div>
 
-      <div
-
-
-
-        id="janelaImagem"
-
-
-
-        class="janela-imagem">
-
+        </nav>
 
 
+        <!-- ÁREA DOS PROJETOS -->
+        <section class="projetos">
+        </section>
+
+    </main> 
+    <nav class="Barra-lateral-direita">
+            <div>
+                
+            </div>
+
+        </nav>
 
 
+    <!-- JANELA DE IMAGEM -->
+    <div id="janelaImagem" class="janela-imagem">
 
-
-        <span
-
-
-
-            id="fecharImagem"
-
-
-
-            class="fechar-imagem">
-
-
-
+        <span id="fecharImagem" class="fechar-imagem">
             ×
-
-
-
         </span>
 
-
-
-
-
-
-
         <img id="imagemAmpliada">
-
-
-
-
-
-
 
     </div>
 
 
-
-
-
-
-    
-
     <script src="script.js"></script>
+
 </body>
+
 </html>

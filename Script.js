@@ -2,10 +2,12 @@ const botaoCriarProjeto =
     document.getElementById("criarProjeto");
 
 const areaProjetos =
-    document.querySelector(".Projetos");
+    document.querySelector(".projetos");
 
 let imagemSelecionada = null;
+
 let indiceImagemSelecionada = null;
+
 let tipoAcao = null;
 
 let projetos =
@@ -47,13 +49,15 @@ localStorage.setItem(
 );
 
 
-
 // Mostra os projetos
 
 function mostrarProjetos() {
 
-    areaProjetos.innerHTML = "";
+    if (!areaProjetos) {
+        return;
+    }
 
+    areaProjetos.innerHTML = "";
 
     // Pega as imagens salvas
 
@@ -65,7 +69,6 @@ function mostrarProjetos() {
         ) || {};
 
 
-
     projetos.forEach(
         function(projeto, indice) {
 
@@ -74,11 +77,9 @@ function mostrarProjetos() {
                     "div"
                 );
 
-
             novoProjeto.classList.add(
                 "projeto"
             );
-
 
 
             // Link para abrir o projeto
@@ -88,13 +89,11 @@ function mostrarProjetos() {
                     "a"
                 );
 
-
             linkProjeto.href =
                 "Projeto.html?id=" +
                 encodeURIComponent(
                     projeto.id
                 );
-
 
 
             // Área da capa
@@ -104,11 +103,9 @@ function mostrarProjetos() {
                     "div"
                 );
 
-
             capaProjeto.classList.add(
                 "capa-projeto"
             );
-
 
 
             // Imagem da capa
@@ -117,7 +114,6 @@ function mostrarProjetos() {
                 document.createElement(
                     "img"
                 );
-
 
 
             /*
@@ -164,16 +160,13 @@ function mostrarProjetos() {
             }
 
 
-
             imagem.alt =
                 projeto.nome;
-
 
 
             capaProjeto.appendChild(
                 imagem
             );
-
 
 
             // Nome do projeto
@@ -183,10 +176,8 @@ function mostrarProjetos() {
                     "h2"
                 );
 
-
             titulo.textContent =
                 projeto.nome;
-
 
 
             // Quantidade de imagens
@@ -196,9 +187,7 @@ function mostrarProjetos() {
                     "p"
                 );
 
-
             let numeroImagens = 0;
-
 
             if (
                 imagensProjetos[projeto.id]
@@ -221,23 +210,19 @@ function mostrarProjetos() {
                 );
 
 
-
             // Coloca capa, título e quantidade no link
 
             linkProjeto.appendChild(
                 capaProjeto
             );
 
-
             linkProjeto.appendChild(
                 titulo
             );
 
-
             linkProjeto.appendChild(
                 quantidade
             );
-
 
 
             // Botão de opções
@@ -247,15 +232,12 @@ function mostrarProjetos() {
                     "button"
                 );
 
-
             botaoOpcoes.textContent =
                 "⋮";
-
 
             botaoOpcoes.classList.add(
                 "botao-opcoes-projeto"
             );
-
 
 
             // Menu de opções
@@ -265,11 +247,9 @@ function mostrarProjetos() {
                     "div"
                 );
 
-
             menu.classList.add(
                 "menu-projeto"
             );
-
 
 
             // Botão renomear
@@ -279,15 +259,12 @@ function mostrarProjetos() {
                     "button"
                 );
 
-
             botaoRenomear.textContent =
                 "Renomear";
-
 
             botaoRenomear.classList.add(
                 "botao-renomear-projeto"
             );
-
 
 
             // Botão excluir
@@ -297,15 +274,12 @@ function mostrarProjetos() {
                     "button"
                 );
 
-
             botaoExcluir.textContent =
                 "Excluir";
-
 
             botaoExcluir.classList.add(
                 "botao-excluir-projeto"
             );
-
 
 
             // Abre o menu
@@ -318,14 +292,12 @@ function mostrarProjetos() {
 
                     evento.stopPropagation();
 
-
                     menu.classList.toggle(
                         "aberto"
                     );
 
                 }
             );
-
 
 
             // Renomear projeto
@@ -369,7 +341,6 @@ function mostrarProjetos() {
 
                 }
             );
-
 
 
             // Excluir projeto
@@ -426,18 +397,15 @@ function mostrarProjetos() {
             );
 
 
-
             // Coloca os botões dentro do menu
 
             menu.appendChild(
                 botaoRenomear
             );
 
-
             menu.appendChild(
                 botaoExcluir
             );
-
 
 
             // Coloca tudo dentro do projeto
@@ -446,16 +414,13 @@ function mostrarProjetos() {
                 linkProjeto
             );
 
-
             novoProjeto.appendChild(
                 botaoOpcoes
             );
 
-
             novoProjeto.appendChild(
                 menu
             );
-
 
 
             // Coloca o projeto na página
@@ -470,72 +435,205 @@ function mostrarProjetos() {
 }
 
 
-
 // Criar projeto
 
-botaoCriarProjeto.addEventListener(
-    "click",
-    function() {
+if (botaoCriarProjeto) {
+
+    botaoCriarProjeto.addEventListener(
+        "click",
+        function() {
+
+            const nomeProjeto =
+                prompt(
+                    "Digite o nome do projeto:"
+                );
 
 
-        const nomeProjeto =
-            prompt(
-                "Digite o nome do projeto:"
-            );
+            if (nomeProjeto) {
+
+                const novoProjeto = {
+
+                    id:
+                        Date.now().toString() +
+                        Math.random(),
+
+                    nome:
+                        nomeProjeto
+
+                };
 
 
-        if (nomeProjeto) {
+                projetos.push(
+                    novoProjeto
+                );
 
 
-            const novoProjeto = {
-
-                id:
-                    Date.now().toString() +
-                    Math.random(),
-
-                nome:
-                    nomeProjeto
-
-            };
+                localStorage.setItem(
+                    "projetos",
+                    JSON.stringify(
+                        projetos
+                    )
+                );
 
 
-            projetos.push(
-                novoProjeto
-            );
+                mostrarProjetos();
 
-
-            localStorage.setItem(
-                "projetos",
-                JSON.stringify(
-                    projetos
-                )
-            );
-
-
-            mostrarProjetos();
+            }
 
         }
+    );
 
-    }
-);
-
+}
 
 
 // Mostra os projetos quando a página abre
 
 mostrarProjetos();
 
-searchInput.addEventListener('keyup', function() {
-    const query = searchInput.value.toLowerCase();
 
-    for (let i = 0; i < items.length; i++) {
-        const itemText = items[i].textContent.toLowerCase();
-        
-        // Se o texto do item incluir o que foi digitado, ele aparece; senão, é ocultado
-        if (itemText.includes(query)) {
-            items[i].style.display = '';
-        } else {
-            items[i].style.display = 'none';
+const searchInput =
+    document.getElementById("searchInput");
+
+const items =
+    document.querySelectorAll(".pin");
+
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "keyup",
+        function() {
+
+            const query =
+                searchInput.value.toLowerCase();
+
+            for (
+                let i = 0;
+                i < items.length;
+                i++
+            ) {
+
+                const itemText =
+                    items[i]
+                        .textContent
+                        .toLowerCase();
+
+                if (
+                    itemText.includes(
+                        query
+                    )
+                ) {
+
+                    items[i].style.display = '';
+
+                } else {
+
+                    items[i].style.display = 'none';
+
+                }
+
+            }
+
         }
+    );
+
+}
+
+
+// Sistema de salvar
+
+const pins =
+    document.querySelectorAll(".pin");
+
+
+pins.forEach(
+    function(pin) {
+
+        const botaoSalvar =
+            document.createElement(
+                "button"
+            );
+
+
+        botaoSalvar.textContent =
+            "Salvar";
+
+
+        botaoSalvar.classList.add(
+            "botao-salvar"
+        );
+
+
+        botaoSalvar.addEventListener(
+            "click",
+            function(evento) {
+
+                evento.preventDefault();
+
+                evento.stopPropagation();
+
+
+                // Pega os projetos existentes
+
+                const projetosSalvar =
+                    JSON.parse(
+                        localStorage.getItem(
+                            "projetos"
+                        )
+                    ) || [];
+
+
+                // Cria a janela
+
+                const janelaProjetos =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                janelaProjetos.classList.add(
+                    "janela-salvar"
+                );
+
+
+                // Cria um botão para cada projeto
+
+                projetosSalvar.forEach(
+                    function(projeto) {
+
+                        const botaoProjeto =
+                            document.createElement(
+                                "button"
+                            );
+
+
+                        botaoProjeto.textContent =
+                            projeto.nome;
+
+
+                        janelaProjetos.appendChild(
+                            botaoProjeto
+                        );
+
+                    }
+                );
+
+
+                // Coloca a janela na página
+
+                document.body.appendChild(
+                    janelaProjetos
+                );
+
+            }
+        );
+
+
+        // Coloca o botão dentro da imagem
+
+        pin.appendChild(
+            botaoSalvar
+        );
+
     }
-});
+);
