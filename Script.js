@@ -637,3 +637,17 @@ pins.forEach(
 
     }
 );
+const abrirAba = document.getElementById("abrirAba");
+const abaLateral = document.getElementById("abaLateral");
+
+if (abrirAba) {
+    abrirAba.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        if (abaLateral.style.right === "35px") {
+            abaLateral.style.right = "-300px";
+        } else {
+            abaLateral.style.right = "35px";
+        }
+    });
+}

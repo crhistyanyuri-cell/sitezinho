@@ -29,6 +29,7 @@ nav a {
 nav {
     gap: 20px;
     display: flex;
+    justify-content: center;
 }
 
 body {
@@ -81,6 +82,18 @@ button {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 100px;
+}
+.botoes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+
+    background-color: skyblue;
+
+    width: 500px;
+    height: 500px;
 }
 
 footer {
@@ -375,7 +388,20 @@ footer {
     display: block;
     margin: 0 auto;
 }
-
+.imagem-watsapp {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+.imagem-pinterest {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
 
 /* ==========================================================================
    9. CAMPO DE PESQUISA
@@ -482,64 +508,65 @@ footer {
      width: 200px;
     height: 50px;
 }
-.Novidades {
+.Moda {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  align-items: center; /* Alinha à esquerda (ou center para centralizar) */
+  gap: 10px; /* Cria um espaço de 10px entre o botão e a imagem */
+}
+.Arte{
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  align-items: center; /* Alinha à esquerda (ou center para centralizar) */
+  gap: 10px; /* Cria um espaço de 10px entre o botão e a imagem */
+}
+.Escultura{
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  align-items: center; /* Alinha à esquerda (ou center para centralizar) */
+  gap: 10px; /* Cria um espaço de 10px entre o botão e a imagem */
+}
+
+#abaLateral {
     position: fixed;
+    right: -300px;
     top: 150px;
-    right: 0;
-    width: 500px;
-    height: 500px;
-    background-color: #328a99;
-    padding: 25px 10px;
-    box-sizing: border-box;
-    z-index: 10;
-    border-radius: 50px;
-    border-bottom: #007BFF;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    transition: right 0.3s;
+    z-index: 1000;
 }
-.Novos-videos {
+.Barra-de-Baixo {
     position: fixed;
-    bottom: 40px;
-    right: 200px;
-    top: 200px;
-    border-radius: 50%;
-    background-color: #ff00aa;
-    color: white;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 8px 18px ;
-     width: 200px;
+    bottom: 20px;
+    width: 100%;
     height: 50px;
-}
-.Novos-artistas {
-    
-    top: 200px;
-    right: 600px;
-    width: 500px;
-    height: 500px;
-    background-color: #703299;
-    padding: 25px 10px;
-    box-sizing: border-box;
-    z-index: 10;
-    border-radius: 50px;
-    border-bottom: #007BFF;
-    width: 500px;
-}
-.Novos-Artistas{
-    position: fixed;
-    bottom: 40px;
-    
-    top: 200px;
-    border-radius: 50%;
-    background-color: #ff00aa;
-    color: white;
-    font-size: 24px;
+    background-color: #6a3299;
     display: flex;
-    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    padding: 8px 18px ;
-     width: 200px;
-    height: 50px;
+    align-items: center;
+    z-index: 20;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.Barra-de-Baixo > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.Barra-de-Baixo li {
+    display: flex;
+}
+.Barra-de-Baixo ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    align-items: center;
 }
