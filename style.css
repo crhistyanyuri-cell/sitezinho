@@ -570,3 +570,42 @@ footer {
     list-style: none;
     align-items: center;
 }
+
+.janela-salvar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 220px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 12px;
+    background-color: white;
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    z-index: 99999;
+}
+
+.janela-salvar .botao-projeto-salvar {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+}
+#imagensProjeto,
+.area-imagens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#imagensProjeto img,
+.area-imagens img {
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}

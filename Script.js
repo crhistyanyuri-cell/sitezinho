@@ -540,103 +540,127 @@ if (searchInput) {
 }
 
 
-// Sistema de salvar
-
-const pins =
-    document.querySelectorAll(".pin");
 
 
-pins.forEach(
-    function(pin) {
+ 
+ // Sistema de salvar
 
-        const botaoSalvar =
-            document.createElement(
-                "button"
-            );
+const pins = document.querySelectorAll(".pin");
 
+pins.forEach(function(pin) {
 
-        botaoSalvar.textContent =
-            "Salvar";
-
-
-        botaoSalvar.classList.add(
-            "botao-salvar"
-        );
-
-
-        botaoSalvar.addEventListener(
-            "click",
-            function(evento) {
-
-                evento.preventDefault();
-
-                evento.stopPropagation();
-
-
-                // Pega os projetos existentes
-
-                const projetosSalvar =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "projetos"
-                        )
-                    ) || [];
-
-
-                // Cria a janela
-
-                const janelaProjetos =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                janelaProjetos.classList.add(
-                    "janela-salvar"
-                );
-
-
-                // Cria um botão para cada projeto
-
-                projetosSalvar.forEach(
-                    function(projeto) {
-
-                        const botaoProjeto =
-                            document.createElement(
-                                "button"
-                            );
-
-
-                        botaoProjeto.textContent =
-                            projeto.nome;
-
-
-                        janelaProjetos.appendChild(
-                            botaoProjeto
-                        );
-
-                    }
-                );
-
-
-                // Coloca a janela na página
-
-                document.body.appendChild(
-                    janelaProjetos
-                );
-
-            }
-        );
-
-
-        // Coloca o botão dentro da imagem
-
-        pin.appendChild(
-            botaoSalvar
-        );
-
+    // Evita criar o botão duas vezes na mesma imagem
+    if (pin.querySelector(".botao-salvar")) {
+        return;
     }
-);
+
+    const botaoSalvar = document.createElement("button");
+    botaoSalvar.textContent = "Salvar";
+    botaoSalvar.classList.add("botao-salvar");
+
+    botaoSalvar.addEventListener("click", function(evento) {
+
+        evento.preventDefault();
+        evento.stopPropagation();
+
+        // Fecha a janela anterior, se existir
+        const janelaAberta = document.querySelector(".janela-salvar");
+
+        if (janelaAberta) {
+            janelaAberta.remove();
+            return;
+        }
+
+        // Pega os projetos existentes
+        const projetosSalvar =
+            JSON.parse(localStorage.getItem("projetos")) || [];
+
+        // Cria a janela
+        const janelaProjetos = document.createElement("div");
+        janelaProjetos.classList.add("janela-salvar");
+
+        // Posiciona a janela perto do botão
+        const posicao = botaoSalvar.getBoundingClientRect();
+
+        janelaProjetos.style.position = "fixed";
+        janelaProjetos.style.left = Math.max(
+            0,
+            Math.min(posicao.left, window.innerWidth - 240)
+        ) + "px";
+
+        janelaProjetos.style.top = Math.max(
+            0,
+            Math.min(posicao.bottom + 8, window.innerHeight - 280)
+        ) + "px";
+
+        janelaProjetos.style.zIndex = "99999";
+
+        // Mostra uma mensagem se não houver projetos
+        if (projetosSalvar.length === 0) {
+            janelaProjetos.textContent = "Você ainda não tem projetos.";
+        }
+
+        // Cria um botão para cada projeto
+        projetosSalvar.forEach(function(projeto) {
+
+            const botaoProjeto = document.createElement("button");
+            botaoProjeto.textContent = projeto.nome;
+            botaoProjeto.classList.add("botao-projeto-salvar");
+
+            // Salva a imagem no projeto escolhido
+            botaoProjeto.addEventListener("click", function() {
+
+                // Procura a imagem deste pin
+                const imagem = pin.querySelector("img");
+
+                if (!imagem) {
+                    alert("Não foi possível encontrar a imagem.");
+                    return;
+                }
+
+                // Recupera as imagens dos projetos
+                const imagensProjetos =
+                    JSON.parse(
+                        localStorage.getItem("imagensProjetos")
+                    ) || {};
+
+                // Cria a lista se o projeto ainda não tiver imagens
+                if (!imagensProjetos[projeto.id]) {
+                    imagensProjetos[projeto.id] = [];
+                }
+
+                // Evita salvar a mesma imagem duas vezes
+                if (!imagensProjetos[projeto.id].includes(imagem.src)) {
+                    imagensProjetos[projeto.id].push(imagem.src);
+                }
+
+                // Salva as alterações no navegador
+                localStorage.setItem(
+                    "imagensProjetos",
+                    JSON.stringify(imagensProjetos)
+                );
+
+                // Fecha a janela
+                janelaProjetos.remove();
+
+            });
+
+            // Adiciona o botão à janela
+            janelaProjetos.appendChild(botaoProjeto);
+
+        });
+
+        // Coloca a janela na página
+        document.body.appendChild(janelaProjetos);
+
+    });
+
+    // Coloca o botão dentro da imagem
+    pin.appendChild(botaoSalvar);
+
+});
+
+
 const abrirAba = document.getElementById("abrirAba");
 const abaLateral = document.getElementById("abaLateral");
 
@@ -650,4 +674,62 @@ if (abrirAba) {
             abaLateral.style.right = "35px";
         }
     });
+}
+
+
+ // Carregar imagens dentro de um projeto
+
+const areaImagensProjeto =
+    document.querySelector("#imagensProjeto, .area-imagens");
+
+if (areaImagensProjeto) {
+
+    const parametrosURL = new URLSearchParams(
+        window.location.search
+    );
+
+    const idProjeto = parametrosURL.get("id");
+
+    const projetosSalvos =
+        JSON.parse(localStorage.getItem("projetos")) || [];
+
+    const imagensSalvas =
+        JSON.parse(localStorage.getItem("imagensProjetos")) || {};
+
+    const projetoAtual = projetosSalvos.find(
+        function(projeto) {
+            return projeto.id === idProjeto;
+        }
+    );
+
+    if (projetoAtual) {
+
+        const tituloProjeto = document.querySelector("#tituloProjeto");
+
+        if (tituloProjeto) {
+            tituloProjeto.textContent = projetoAtual.nome;
+        }
+
+        areaImagensProjeto.innerHTML = "";
+
+        const imagensDoProjeto = imagensSalvas[idProjeto] || [];
+
+        imagensDoProjeto.forEach(function(enderecoImagem) {
+
+            const imagem = document.createElement("img");
+
+            imagem.src = enderecoImagem;
+            imagem.alt = projetoAtual.nome;
+
+            areaImagensProjeto.appendChild(imagem);
+
+        });
+
+    } else {
+
+        areaImagensProjeto.textContent =
+            "Projeto não encontrado.";
+
+    }
+
 }
