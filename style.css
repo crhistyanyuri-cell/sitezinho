@@ -609,3 +609,40 @@ footer {
     object-fit: contain;
     border-radius: 12px;
 }
+.imagem {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  align-items: center; /* Alinha à esquerda (ou center para centralizar) */
+  gap: 10px; /* Cria um espaço de 10px entre o botão e a imagem */
+  border-radius: 50px;
+}
+.video {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  align-items: center; /* Alinha à esquerda (ou center para centralizar) */
+  gap: 10px; /* Cria um espaço de 10px entre o botão e a imagem */
+  border-radius: 50px;
+}
+.gif {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  align-items: center; /* Alinha à esquerda (ou center para centralizar) */
+  gap: 10px; /* Cria um espaço de 10px entre o botão e a imagem */
+  border-radius: 50px;
+}
+.competiçoes {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  align-items: center; /* Alinha à esquerda (ou center para centralizar) */
+  gap: 10px; /* Cria um espaço de 10px entre o botão e a imagem */
+  border-radius: 50px;
+}
+.Anuncios {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
+  align-items: center; /* Alinha à esquerda (ou center para centralizar) */
+  gap: 10px; /* Cria um espaço de 10px entre o botão e a imagem */
+  border-radius: 50px;
+}
+.Eventos{
+top: 100px;}
