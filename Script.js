@@ -733,3 +733,16 @@ if (areaImagensProjeto) {
     }
 
 }
+//Informações pessoais
+function mostrarNome(){
+    const nome = document.getElementById("nome").value
+    document.getElementById("resultado").textContent = nome;
+}
+function mostrarSnome(){
+    const Snome = document.getElementById("Snome").value
+    document.getElementById("Sresultado").textContent = Snome;
+}
+function Mostraridade(){
+    const idade = document.getElementById("idade").value
+    document.getElementById("Iresultado").textContent = idade;
+}

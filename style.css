@@ -646,3 +646,16 @@ footer {
 }
 .Eventos{
 top: 100px;}
+
+.Informações {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    background-color: skyblue;
+    width: 800px;
+    height: 800px;
+    border-radius: 50px;
+}
