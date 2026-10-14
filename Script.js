@@ -744,5 +744,11 @@ function mostrarSnome(){
 }
 function Mostraridade(){
     const idade = document.getElementById("idade").value
-    document.getElementById("Iresultado").textContent = idade;
+    if(idade >= 18){
+        document.getElementById("Iresultado").textContent = "maior de idade" + idade;
+    }
+    else{
+        document.getElementById("Iresultado").textContent = "menor de idade: " + idade;
+    }
+    
 }
