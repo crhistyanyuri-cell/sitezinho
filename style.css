@@ -492,22 +492,14 @@ footer {
     z-index: 10;
     background-color: seashell;
 }
-.botão-enviar-mensagem {
+.barra-de-conversa{
+    width: 800px;
+    height: 100px;
+    bottom: 100px;
     position: fixed;
-    bottom: 40px;
-    right: 1000px;
-    border-radius: 50%;
-    background-color: #ff00aa;
-    color: white;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 8px 18px ;
-     width: 200px;
-    height: 50px;
+
 }
+
 .Moda {
   display: flex;
   flex-direction: column; /* Organiza os itens em coluna (um abaixo do outro) */
@@ -658,4 +650,59 @@ top: 100px;}
     width: 800px;
     height: 800px;
     border-radius: 50px;
+}
+nav.Area-Conversa {
+    width: 780px;
+    height: 40px;
+    background-color: aliceblue;
+}
+
+#enviarInput {
+    width: 250px;
+    height: 30px;
+}
+
+.botao-enviar {
+    width: 60px;
+    height: 35px;
+}
+.painel-conversa {
+    position: fixed;
+    top: 170px;
+    bottom: 20px;
+    left: 120px;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.area-mensagens {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    background-color: aliceblue;
+}
+
+nav.Area-Conversa {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.area-configurações{
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    background-color: aliceblue;
+}
+.painel-configurações{
+    position: fixed;
+    top: 170px;
+    bottom: 20px;
+    left: 120px;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
