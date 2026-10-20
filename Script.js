@@ -752,3 +752,13 @@ function Mostraridade(){
     }
     
 }
+const interruptor = document.querySelector("#modoEscuro");
+
+interruptor.addEventListener("change", function() {
+    if (interruptor.checked) {
+        console.log("Ativado");
+    } else {
+        console.log("Desativado");
+    }
+});
+console.log(document.getElementById("modoEscuro"));
